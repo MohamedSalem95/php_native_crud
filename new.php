@@ -28,7 +28,7 @@
         if ($form_valid) {
             require('connect_db.php');
             // $stmt = mysqli_prepare('INSERT INTO products VALUES(?, ?, ?)');
-            $query = 'INSERT INTO products (name, description, price) VALUES(' . $name . ', ' . $description . ', ' . $price . ')';
+            $query = "INSERT INTO products (name, description, price) VALUES( '{$name}' , '{$description}', {$price})";
             mysqli_query($conn, $query);
             mysqli_close($conn);
             header('Location: http://127.0.0.1/crud');

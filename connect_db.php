@@ -8,4 +8,4 @@ if (!$conn) {
     die('Error connect db: ' . mysqli_connect_error());
 }
 
-echo 'connected!';
+// echo 'connected!';

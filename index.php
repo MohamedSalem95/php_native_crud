@@ -14,10 +14,12 @@ $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
     echo '<h2> All Product </h2>';
     while($product = mysqli_fetch_assoc($result)) {
+        echo '<p>';
         echo 'Name: ' . $product['name'] . '<br />';
         echo 'Description: ' . $product['description'] . '<br />';
         echo 'Price: ' . $product['price'] . '<br />';
+        echo '</p>';
     }
 } else {
-    echo 'No products here yet consider adding one!';
+    echo '<p> No products here yet consider adding one! </p>';
 }
