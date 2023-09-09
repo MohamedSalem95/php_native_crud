@@ -1,7 +1,21 @@
 <a href="index.php"> Back Home </a>
-<h2> create new product </h2>
+<h2> edit product </h2>
 <?php
-    $name = $description = $price = '';
+    require('connect_db.php');
+
+    
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $query = "SELECT * FROM products WHERE id = {$id}";
+        
+        $result = mysqli_query($conn, $query);
+        $product = mysqli_fetch_assoc($result);
+        $name = $product['name'];
+        $description = $product['description'];
+        $price = $product['price'];
+    } else {
+        $name = $description = $price = '';
+    }
     $name_err = $description_err = $price_err = '';
     $form_valid = true;
 
@@ -29,10 +43,10 @@
         if ($form_valid) {
             require('connect_db.php');
             // $stmt = mysqli_prepare('INSERT INTO products VALUES(?, ?, ?)');
-            $query = "INSERT INTO products (name, description, price) VALUES( '{$name}' , '{$description}', {$price})";
+            $query = "UPDATE products SET name='{$name}', description='{$description}', price={$price}";
             mysqli_query($conn, $query);
             mysqli_close($conn);
-            header('Location: http://127.0.0.1/crud');
+            header("Location: http://127.0.0.1/crud");
         }
         
     }

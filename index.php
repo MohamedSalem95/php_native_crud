@@ -19,6 +19,8 @@ if (mysqli_num_rows($result) > 0) {
         echo 'Description: ' . $product['description'] . '<br />';
         echo 'Price: ' . $product['price'] . '<br />';
         echo '</p>';
+        echo "<a href='show.php?id={$product['id']}'>show</a>";
+        echo '<hr />';
     }
 } else {
     echo '<p> No products here yet consider adding one! </p>';
