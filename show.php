@@ -15,6 +15,9 @@ if (mysqli_num_rows($result) > 0) {
     echo 'Price: ' . $product['price'] . '<br />';
     echo '</p>';
     echo "<a href='edit.php?id={$product['id']}'>Edit</a>";
+    echo '|';
+    echo "<a href='delete.php?id={$product['id']}'>Delete</a>";
 } else {
     echo '<p> Product Not Found. </p>';
 }
+mysqli_close($conn);

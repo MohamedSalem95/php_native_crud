@@ -1,4 +1,10 @@
 <?php
+    if (isset($_GET['msg'])) {
+        echo "<h4 style='color: green;'>" . $_GET['msg'] . "</h4>";
+    }
+?>
+
+<?php
 
 require('connect_db.php');
 ?>
@@ -25,3 +31,4 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo '<p> No products here yet consider adding one! </p>';
 }
+mysqli_close($conn);

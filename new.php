@@ -32,7 +32,7 @@
             $query = "INSERT INTO products (name, description, price) VALUES( '{$name}' , '{$description}', {$price})";
             mysqli_query($conn, $query);
             mysqli_close($conn);
-            header('Location: http://127.0.0.1/crud');
+            header('Location: http://127.0.0.1/crud?msg="Product created successfully."');
         }
         
     }

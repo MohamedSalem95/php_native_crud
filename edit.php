@@ -46,7 +46,7 @@
             $query = "UPDATE products SET name='{$name}', description='{$description}', price={$price}";
             mysqli_query($conn, $query);
             mysqli_close($conn);
-            header("Location: http://127.0.0.1/crud");
+            header('Location: http://127.0.0.1/crud?msg="Product updated successfully."');
         }
         
     }
